@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FusedLocationProviderClient mFusedLocationClient;
     private TextView statusTxtv;
+    private Location myLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onSuccess(Location location) {
                         // Got last known location. In some rare situations this can be null.
                         if (location != null) {
+                            myLocation = location;
                             // Logic to handle location object
                             statusTxtv.setVisibility(View.GONE);
                             findViewById(R.id.layout).setVisibility(View.VISIBLE);
@@ -86,7 +88,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void viewWeatherForecast(View view){
-        startActivity(new Intent(this, WeatherActivity.class));
+        Intent weatherIntent = new Intent(this, WeatherActivity.class);
+        weatherIntent.putExtra("latitude", myLocation.getLatitude());
+        weatherIntent.putExtra("longitude", myLocation.getLongitude());
+        startActivity(weatherIntent);
     }
 
     public void viewNearrestra(View view){
