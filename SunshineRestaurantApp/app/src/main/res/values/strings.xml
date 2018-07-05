@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Sunshine Restaurant App</string>
+    <string name="weather_title">Weather</string>
+    <string name="restaurant_title">Restaurants</string>
     <string name="today">Today</string>
     <string name="tomorrow">Tomorrow</string>
+    <string name="fetching_location">Fetching Location</string>
+    <string name="weather">Weather</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="permission_not_granted">Permission not granted. Unable to proceed further!</string>
+    <string name="unable_to_get_location">Unable to get user location</string>
 </resources>
